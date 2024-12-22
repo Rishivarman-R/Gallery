@@ -143,21 +143,14 @@ Publish the website in the given URL.
 </html>
 ```
 # OUTPUT:
-![Screenshot (64)](https://github.com/user-attachments/assets/86c60e66-bcdc-4c3c-a241-7244912d5af8)
-
-![Screenshot (65)](https://github.com/user-attachments/assets/2d9fde55-4928-468a-abb5-668a5341c7be)
-
-![Screenshot (66)](https://github.com/user-attachments/assets/0ab06138-a822-4166-8e98-d7211e9cf818)
-
-![Screenshot (67)](https://github.com/user-attachments/assets/17df8da0-dc07-4790-83c2-b38d20cc84be)
-
-![Uploading Screenshot (68).png…]()
-
-![Screenshot (69)](https://github.com/user-attachments/assets/1d316d75-2c82-4432-8096-0f2943273c1b)
-
-![Screenshot (70)](https://github.com/user-attachments/assets/987678a4-15ba-479f-af7c-e1af55ba6f3d)
-
-![Screenshot (71)](https://github.com/user-attachments/assets/84b6eda4-10bd-4342-9be2-7738d289cef6)
+![Screenshot (64)](https://github.com/user-attachments/assets/e03ecb06-8813-4cbb-b3b3-aaf6c58c06aa)
+![Screenshot (65)](https://github.com/user-attachments/assets/32a63716-1400-42c7-8bdc-8f8c1000f18c)
+![Screenshot (66)](https://github.com/user-attachments/assets/0b715d1c-71fd-4050-affe-352938220fed)
+![Screenshot (67)](https://github.com/user-attachments/assets/9e486c49-1d2e-4756-8311-8621c9a68bfb)
+![Screenshot (68)](https://github.com/user-attachments/assets/293eae8e-98df-4257-83f2-e62a35e419e7)
+![Screenshot (69)](https://github.com/user-attachments/assets/96074ae7-040e-4299-ace9-0c25cad1320a)
+![Screenshot (70)](https://github.com/user-attachments/assets/243bbb67-9478-4099-831f-df873e543e79)
+![Screenshot (71)](https://github.com/user-attachments/assets/fd764c34-d180-464c-8965-c120e821b3d4)
 
 
 # RESULT:
