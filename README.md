@@ -26,175 +26,139 @@ Publish the website in the given URL.
 ```
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
+    <body>
+        <header>
+            <h1><font color="orange">IMAGE GALLERY</font></h1>
+        </header>
+        <header>
+            <h2><font color="aqua">7 WONDERS</font></h2>
+        </header>
+    </body>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('background.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        header {
             text-align: center;
-            font-size: 32px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
+            background-color: #f4f4f4;
+             background-image: url("background.jpg");
+            background-size:cover;
         }
 
-        div img {
-            width: 225px;
-            height: 225px;
+        h1 {
+            margin-top: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 10px;
-        }
-        .img{
-            overflow: hidden;
-        }
-        div{
-            transition: 0.25s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        div :hover {
+        .gallery img:hover {
             transform: scale(1.1);
-            border-radius: 10px;
-        }
-        
-        
-        .col1 {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-        .col2 {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        
-
-        span {
-            color: white;
-            position: absolute;
-            top: 5%;
-            right: 5%;
-            font-size: 50px;
-            cursor: pointer;
-        }
-        #dis{
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
-            bottom: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-        #dis img{
-            width: 400px;
-            height: 400px;
-        }
-        footer {
-            background-color: #da1111;
-            color: #fff;
-            padding: 12px 30px;
-            text-align: center;
+            left: 0;
             width: 100%;
-            position: fixed;
-            bottom: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 4px solid white;
+            border-radius: 10px;
+        }
+
+        .modal span {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
-    
 </head>
-
-<body >
-    <header>
-        <h1><font color="orange">IMAGE GALLERY</font></h1>
-    </header>
-    <header>
-        <h2><font color="aqua">7 WONDERS</font></h2>
-    </header>
-    
-
-
-
-    <div class="col1">
-        <div class="img">
-            <img src="tajmahal.jpg" onclick="opens(this.src)" id="img1" alt="">
-        </div>
-        <div class="img">
-            <img src="colosseum.jpg" onclick="opens(this.src)" id="img2" alt="">
-        </div>
-        <div class="img">
-            <img src="Chichen Itza.jpg" onclick="opens(this.src)" id="img3" alt="">
-        </div>
-        <div class="img">
-            <img src="china.jpg" onclick="opens(this.src)" id="img4" alt="">
-        </div>
+<body>
+    <h1>Interactive Photo Gallery</h1>
+    <div class="gallery">
+        <img src="tajmahal.jpg" alt="Image 1" onclick="openModal(this)">
+        <img src="chinawall.jpg" alt="Image 2" onclick="openModal(this)">
+        <img src="china.jpg" alt="Image 3" onclick="openModal(this)">
+        <img src="colosseum.jpg" alt="Image 4" onclick="openModal(this)">
+        <img src="cristo.jpg" alt="Image 5" onclick="openModal(this)">
+        <img src="Chichen Itza.jpg" alt="Image 5" onclick="openModal(this)">
+        <img src="Machu Picchu.jpg" alt="Image 5" onclick="openModal(this)">
     </div>
-    <div class="col2">
-        <div class="img">
-            <img src="cristo.jpg" onclick="opens(this.src)" id="img5" alt="">
-        </div>
-        <div class="img">
-            <img src="Machu Picchu.jpg" onclick="opens(this.src)" id="img6" alt="">
-        </div>
-        <div class="img">
-            <img src="chinawall.jpg" onclick="opens(this.src)" id="img7" alt="">
-        
+
+    <!-- Modal for displaying larger image -->
+    <div class="modal" id="imageModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
     </div>
-    <div class="img">
-        <img src="rifex.jpg" onclick="opens(this.src)" id="img7" alt="">
-    
-</div>
-    
-    
-    <footer>
-        <p>Designed by Rishivarman R(24900419)</p>
-    </footer>
-    
+
     <script>
-        const allPhotos = document.querySelectorAll('img.img');
-        const viewer = document.querySelector('img.viewer');
-        const viewerImage = viewer.querySelector('img');
-        const closeBtn = viewer.querySelector('.close-btn');
-    
-        allPhotos.forEach((img) => {
-            img.addEventListener('click', function() {
-                viewer.style.display = 'flex';
-                viewerImage.src = this.src;
-            });
-        });
-    
-        closeBtn.addEventListener('click', (img) => {
-            viewer.style.display = 'img';
-        });
-    
-        viewer.addEventListener('click', (e) => {
-            if (e.target === viewer) {
-                viewer.style.display = 'img';
-            }
-        });
+        // Function to open the modal and display the clicked image
+        function openModal(image) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = image.src;
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
     </script>
-    
-    
 </body>
 </html>
 ```
 # OUTPUT:
-![Screenshot (57)](https://github.com/user-attachments/assets/40d37507-c5ee-4b71-b35f-0fe119ab2d9f)
+![Screenshot (64)](https://github.com/user-attachments/assets/86c60e66-bcdc-4c3c-a241-7244912d5af8)
+
+![Screenshot (65)](https://github.com/user-attachments/assets/2d9fde55-4928-468a-abb5-668a5341c7be)
+
+![Screenshot (66)](https://github.com/user-attachments/assets/0ab06138-a822-4166-8e98-d7211e9cf818)
+
+![Screenshot (67)](https://github.com/user-attachments/assets/17df8da0-dc07-4790-83c2-b38d20cc84be)
+
+![Uploading Screenshot (68).png…]()
+
+![Screenshot (69)](https://github.com/user-attachments/assets/1d316d75-2c82-4432-8096-0f2943273c1b)
+
+![Screenshot (70)](https://github.com/user-attachments/assets/987678a4-15ba-479f-af7c-e1af55ba6f3d)
+
+![Screenshot (71)](https://github.com/user-attachments/assets/84b6eda4-10bd-4342-9be2-7738d289cef6)
+
 
 # RESULT:
 The program for designing an interactive image gallery using HTML, CSS and JavaScript is executed successfully.
